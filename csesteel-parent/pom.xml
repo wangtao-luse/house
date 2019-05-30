@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.csesteel</groupId>
+  <artifactId>csesteel-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+   <modules>
+    <module>csesteel-online-web</module>
+    <module>csesteel-common</module>
+    <module>csesteel-model</module>
+    <module>csesteel-account-service</module>
+    <module>csesteel-account-presist</module>
+    <module>csesteel-public-api</module>
+   </modules>
+  <!-- 将当前项目作为一个springboot-starter的子模块 -->
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.3.RELEASE</version>        
+  </parent>
+  <!-- 全局配置替换 -->
+  <properties>
+     <java.version>1.8</java.version>
+  </properties>
+  <!-- 引入相关依赖 -->
+  <dependencies>
+     <!--web支持-->
+     <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+     </dependency> 
+     <!-- springboot热部署 -->       
+     <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-devtools</artifactId>
+          <!-- optional=true,依赖不会传递，该项目依赖devtools；
+                 之后依赖myboot项目的项目如果想要使用devtools，需要重新引入 -->
+         <optional>true</optional>          
+         <scope>true</scope>
+    </dependency>
+    <!-- log4j -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-log4j</artifactId>
+        <version>1.3.8.RELEASE</version>
+    </dependency>
+    <dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>fastjson</artifactId>
+    <version>1.2.58</version>
+</dependency>
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>dubbo</artifactId>
+    <version>2.6.6</version>
+</dependency>
+
+<dependency>
+    <groupId>com.101tec</groupId>
+    <artifactId>zkclient</artifactId>
+    <version>0.11</version>
+</dependency>
+<dependency>
+	<groupId>io.netty</groupId>
+	<artifactId>netty-all</artifactId>
+	<version>4.1.32.Final</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.curator</groupId>
+    <artifactId>curator-framework</artifactId>
+    <version>4.2.0</version>
+</dependency>
+ <!-- -dubbbo -->
+    <dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>dubbo</artifactId>
+    <version>2.6.6</version>
+</dependency>
+<dependency>
+    <groupId>com.101tec</groupId>
+    <artifactId>zkclient</artifactId>
+    <version>0.11</version>
+</dependency>
+<dependency>
+    <groupId>io.netty</groupId>
+    <artifactId>netty-all</artifactId>
+    <version>4.1.32.Final</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.curator</groupId>
+    <artifactId>curator-framework</artifactId>
+    <version>4.2.0</version>
+</dependency>
+
+ <dependency>
+     <groupId>com.oracle</groupId>
+      <artifactId>ojdbc14</artifactId>
+      <version>8.0.0</version>
+    </dependency>
+<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>jquery</artifactId>
+    <version>3.4.1</version>
+</dependency>
+<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>bootstrap</artifactId>
+    <version>4.3.1</version>
+</dependency>
+  </dependencies> 
+</project>
