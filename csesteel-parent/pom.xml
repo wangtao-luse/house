@@ -12,6 +12,7 @@
     <module>csesteel-account-service</module>
     <module>csesteel-account-presist</module>
     <module>csesteel-public-api</module>
+       <module>csesteel-demo-web</module>
    </modules>
   <!-- 将当前项目作为一个springboot-starter的子模块 -->
   <parent>
@@ -108,5 +109,10 @@
     <artifactId>bootstrap</artifactId>
     <version>4.3.1</version>
 </dependency>
+      <!-- 全局Aop统一管理日志请求日志-->
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-aop</artifactId>
+      </dependency>
   </dependencies> 
 </project>
