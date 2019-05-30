@@ -1,0 +1,12 @@
+server:
+  port: 9003
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    data-username: c##scott
+    password: accp
+mybatis:
+  type-aliases-package: com.csesteel.model
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mapping/*.xml
