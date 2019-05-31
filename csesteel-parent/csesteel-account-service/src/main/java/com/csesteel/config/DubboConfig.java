@@ -1,3 +1,4 @@
+/*
 package com.csesteel.config;
 
 import com.alibaba.dubbo.config.ApplicationConfig;
@@ -13,14 +14,16 @@ import java.util.Map;
 
 @Configuration
 public class DubboConfig {
-   /*  <dubbo:application name="account-provider">
+   */
+/*  <dubbo:application name="account-provider">
     <!-- 为了解决端口冲突
     https://blog.csdn.net/u012988901/article/details/84503672
             -->
       <dubbo:parameter key="qos.enable" value="true"/>
       <dubbo:parameter key="qos.accept.foreign.ip" value="false"/>
       <dubbo:parameter key="qos.port" value="33333"/>
-    </dubbo:application>*/
+    </dubbo:application>*//*
+
    @Bean
     public ApplicationConfig applicationConfig(){
         ApplicationConfig applicationConfig=new ApplicationConfig();
@@ -61,3 +64,4 @@ public class DubboConfig {
       return serviceConfig;
     }
 }
+*/

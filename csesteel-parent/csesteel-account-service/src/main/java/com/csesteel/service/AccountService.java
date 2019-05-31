@@ -9,8 +9,8 @@ import com.csesteel.presist.mapper.EmpMapper;
 
 @Service
 public class AccountService implements AccountApi {
-	@Autowired
- EmpMapper empMapper;
+	//@Autowired
+ //EmpMapper empMapper;
 	@Override
 	public String hello(String hello) {
 		// TODO Auto-generated method stub
@@ -20,7 +20,7 @@ public class AccountService implements AccountApi {
 	@Override
 	public Emp queryEmp(Short empno) {
 		// TODO Auto-generated method stub
-		return empMapper.selectByPrimaryKey(empno);
+		return null;///empMapper.selectByPrimaryKey(empno);
 	}
 
 }
