@@ -1,4 +1,4 @@
-/*
+
 package com.csesteel.config;
 
 import com.alibaba.dubbo.config.ApplicationConfig;
@@ -38,4 +38,3 @@ public class DubboConfig {
         return referenceConfig;
     }
 }
-*/

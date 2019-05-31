@@ -77,11 +77,11 @@
     <version>4.2.0</version>
 
 </dependency>-->
-<!-- <dependency>
+ <dependency>
      <groupId>com.oracle</groupId>
       <artifactId>ojdbc14</artifactId>
       <version>8.0.0</version>
-    </dependency>-->
+    </dependency>
 <dependency>
     <groupId>org.webjars</groupId>
     <artifactId>jquery</artifactId>
