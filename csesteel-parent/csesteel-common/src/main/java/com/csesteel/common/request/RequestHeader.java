@@ -11,6 +11,13 @@ public class RequestHeader {
 	private int serverPort;
 	private String scheme;
 	private String remoteHost;
+	private String method;
+	public String getMethod() {
+		return method;
+	}
+	public void setMethod(String method) {
+		this.method = method;
+	}
 	public String getRequestURI() {
 		return requestURI;
 	}

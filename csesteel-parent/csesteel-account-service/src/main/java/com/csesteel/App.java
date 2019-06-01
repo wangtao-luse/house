@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ImportResource;
 import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 
 @SpringBootApplication
-@ImportResource(locations = { /* "dubbo-provider.xml", */"mybatis/mybatis-config.xml"})
+//@ImportResource(locations = { /* "dubbo-provider.xml", */"mybatis/mybatis-config.xml"})
 @EnableDubbo
 @MapperScan("com.csesteel.presist.mapper")
 public class App {

@@ -1,44 +1,56 @@
 package com.csesteel.model;
 
 
-import java.math.BigDecimal;
-import java.util.Date;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.baomidou.mybatisplus.annotation.TableId;
+import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.annotation.TableField;
+import java.io.Serializable;
 
-import javax.validation.constraints.Pattern;
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author wangtao
+ * @since 2019-06-01
+ */
+@TableName("EMP")
+public class Emp extends Model<Emp> {
 
-public class Emp {
-    private Short empno;
-   @Pattern(regexp="^[\\w]{4,10}$",message="�����������»���,����,��ĸ��ɣ�")
+private static final long serialVersionUID=1L;
+
+    @TableId("EMPNO")
+    private Integer empno;
+
+    @TableField("ENAME")
     private String ename;
 
+    @TableField("JOB")
     private String job;
 
-    private Short mgr;
+    @TableField("MGR")
+    private Integer mgr;
 
-    private Date hiredate;
+    @TableField("HIREDATE")
+    private LocalDateTime hiredate;
 
-    private BigDecimal sal;
+    @TableField("SAL")
+    private Double sal;
 
-    private BigDecimal comm;
+    @TableField("COMM")
+    private Double comm;
 
-    private Short deptno;
-   //��ѯԱ����Ϣʱ��ѯ������
-    private Dept dept;
+    @TableField("DEPTNO")
+    private Integer deptno;
 
-    
-    public Dept getDept() {
-		return dept;
-	}
 
-	public void setDept(Dept dept) {
-		this.dept = dept;
-	}
-
-	public Short getEmpno() {
+    public Integer getEmpno() {
         return empno;
     }
 
-    public void setEmpno(Short empno) {
+    public void setEmpno(Integer empno) {
         this.empno = empno;
     }
 
@@ -47,7 +59,7 @@ public class Emp {
     }
 
     public void setEname(String ename) {
-        this.ename = ename == null ? null : ename.trim();
+        this.ename = ename;
     }
 
     public String getJob() {
@@ -55,46 +67,65 @@ public class Emp {
     }
 
     public void setJob(String job) {
-        this.job = job == null ? null : job.trim();
+        this.job = job;
     }
 
-    public Short getMgr() {
+    public Integer getMgr() {
         return mgr;
     }
 
-    public void setMgr(Short mgr) {
+    public void setMgr(Integer mgr) {
         this.mgr = mgr;
     }
 
-    public Date getHiredate() {
+    public LocalDateTime getHiredate() {
         return hiredate;
     }
 
-    public void setHiredate(Date hiredate) {
+    public void setHiredate(LocalDateTime hiredate) {
         this.hiredate = hiredate;
     }
 
-    public BigDecimal getSal() {
+    public Double getSal() {
         return sal;
     }
 
-    public void setSal(BigDecimal sal) {
+    public void setSal(Double sal) {
         this.sal = sal;
     }
 
-    public BigDecimal getComm() {
+    public Double getComm() {
         return comm;
     }
 
-    public void setComm(BigDecimal comm) {
+    public void setComm(Double comm) {
         this.comm = comm;
     }
 
-    public Short getDeptno() {
+    public Integer getDeptno() {
         return deptno;
     }
 
-    public void setDeptno(Short deptno) {
+    public void setDeptno(Integer deptno) {
         this.deptno = deptno;
+    }
+
+    @Override
+    protected Serializable pkVal() {
+        return this.empno;
+    }
+
+    @Override
+    public String toString() {
+        return "Emp{" +
+        "empno=" + empno +
+        ", ename=" + ename +
+        ", job=" + job +
+        ", mgr=" + mgr +
+        ", hiredate=" + hiredate +
+        ", sal=" + sal +
+        ", comm=" + comm +
+        ", deptno=" + deptno +
+        "}";
     }
 }

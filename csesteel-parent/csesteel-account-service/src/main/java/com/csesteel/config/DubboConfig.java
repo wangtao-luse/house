@@ -54,7 +54,8 @@
 	  ServiceConfig serviceConfig=new  ServiceConfig(); 
 	  serviceConfig.setRegistry(this.registryConfig());
       serviceConfig.setInterface("com.csesteel.api.AccountApi");
-      serviceConfig.setTimeout(3000); serviceConfig.setRef(AccountService.class);  
+      serviceConfig.setTimeout(3000); 
+      serviceConfig.setRef(AccountService.class);  
     return serviceConfig; 
   } 
   

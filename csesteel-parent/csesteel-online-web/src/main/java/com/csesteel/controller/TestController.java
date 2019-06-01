@@ -24,9 +24,11 @@ AccountApi accountApi;
 public ResponseMessage test() {
 	return ResponseMessage.getSuccess();
 }
-public String empByempno(String empno) {
-	Short short1 = new Short(empno);
+@RequestMapping("/emp")
+@ResponseBody
+public Emp empByempno(String empno) {
+	Short short1 = new Short("7369");
 	Emp queryEmp = this.accountApi.queryEmp(short1);
-	return null;
+	return queryEmp;
 }
 }

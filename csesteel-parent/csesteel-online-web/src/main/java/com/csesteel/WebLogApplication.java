@@ -1,4 +1,4 @@
-/*
+
 package com.csesteel;
 
 
@@ -57,6 +57,7 @@ import java.util.Map;
             requestHeader.setServerPort(request.getServerPort());
             requestHeader.setScheme(request.getScheme());//返回当前页面使用的协议，http 或是 https;
             requestHeader.setRemoteHost(request.getRemoteHost());//获得客户端的主机名
+            requestHeader.setMethod(request.getMethod());
             requestMessage.setRequestHeader(requestHeader);
             Map<String, Object> parameters = new HashMap<String, Object>();
             Enumeration<String> en = request.getParameterNames();
@@ -70,7 +71,8 @@ import java.util.Map;
             requestbody.setContent(content);
             requestMessage.setRequestHeader(requestHeader);
             requestMessage.setRequestBody(requestbody);
-            logger.info("REQUEST:"+JSONObject.toJSONString(requestMessage));
+            logger.info("Method:"+request.getMethod());
+            logger.info("RequestMessage:"+JSONObject.toJSONString(requestMessage));
 
         }
 
@@ -78,14 +80,20 @@ import java.util.Map;
         public void doAfterReturning(JoinPoint JoinPoint ,Object object) throws Throwable {
             // 处理完请求，返回内容
             System.out.println("########后置通知########");
+            Object[] args = JoinPoint.getArgs();
+           
             JSONObject jsonObject=new JSONObject();
             String json=JSONObject.toJSONString(object);
             ResponseMessage responseMessage = JSONObject.parseObject(json, ResponseMessage.class);
             long endTime = System.currentTimeMillis();
             long  t= endTime-time.get();
             JSONObject jsonObject1 = JSONObject.parseObject(json);
+            if(null==jsonObject1) {
+            	jsonObject1=new JSONObject();
+            }
             jsonObject1.put("time",t);
-            logger.info(jsonObject1.toJSONString());
+            logger.info("Method:");
+            logger.info("ResponseMessage :" +jsonObject1.toJSONString());
             //logger.info("RESPONSE :" + JSONObject.toJSONString(object));
 
 
@@ -115,4 +123,4 @@ import java.util.Map;
         }
 
     }
-*/
+

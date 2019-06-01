@@ -35,6 +35,7 @@ public class DubboConfig {
         ReferenceConfig referenceConfig=new ReferenceConfig();
         referenceConfig.setId("accountService");
         referenceConfig.setInterface("com.csesteel.api.AccountApi");
+        referenceConfig.setTimeout(3000);
         return referenceConfig;
     }
 }
