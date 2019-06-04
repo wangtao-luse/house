@@ -21,6 +21,11 @@
     	<artifactId>csesteel-model</artifactId>
     	<version>0.0.1-SNAPSHOT</version>
     </dependency>
-    
+
+    <dependency>
+    	<groupId>com.csesteel</groupId>
+    	<artifactId>csesteel-common</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>

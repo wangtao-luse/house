@@ -1,14 +1,15 @@
 package com.csesteel.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import org.springframework.beans.factory.annotation.Autowired;
+
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.csesteel.api.AccountApi;
 import com.csesteel.common.response.ResponseMessage;
-import com.csesteel.model.Emp;
 
 @Controller
 public class TestController {
@@ -26,9 +27,18 @@ public ResponseMessage test() {
 }
 @RequestMapping("/emp")
 @ResponseBody
-public Emp empByempno(String empno) {
+public ResponseMessage empByempno(String empno) {
 	Short short1 = new Short("7369");
-	Emp queryEmp = this.accountApi.queryEmp(short1);
+	ResponseMessage queryEmp = this.accountApi.queryEmp(short1);
 	return queryEmp;
+}
+@RequestMapping("/list")
+public String list() {
+	return "list";
+}
+@RequestMapping("/lists")
+public String lists(ModelMap model,String id) {
+	
+	return "list";
 }
 }

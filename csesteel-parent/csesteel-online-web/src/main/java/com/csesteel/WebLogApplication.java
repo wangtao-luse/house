@@ -13,6 +13,7 @@ import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -27,8 +28,10 @@ import java.util.Map;
     public class WebLogApplication {
         private static Logger logger = (Logger) LoggerFactory.getLogger(WebLogApplication.class);
         ThreadLocal<Long> time=new ThreadLocal<>();
-        @Pointcut("execution(public * com.csesteel.controller..*.*(..))")
+        @Pointcut("execution(@org.springframework.web.bind.annotation.ResponseBody public * com.csesteel.controller..*.*(..))")
         public void webLog() {
+        	//关于execution
+        	//https://blog.csdn.net/xiao190128/article/details/82181769
         }
 
         @Before("webLog()") //在切入点的方法run之前要干的
@@ -84,7 +87,7 @@ import java.util.Map;
            
             JSONObject jsonObject=new JSONObject();
             String json=JSONObject.toJSONString(object);
-            ResponseMessage responseMessage = JSONObject.parseObject(json, ResponseMessage.class);
+           // ResponseMessage responseMessage = JSONObject.parseObject(json, ResponseMessage.class);
             long endTime = System.currentTimeMillis();
             long  t= endTime-time.get();
             JSONObject jsonObject1 = JSONObject.parseObject(json);

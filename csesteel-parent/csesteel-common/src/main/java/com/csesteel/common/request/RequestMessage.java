@@ -1,6 +1,8 @@
 package com.csesteel.common.request;
 
-public class RequestMessage {
+import java.io.Serializable;
+
+public class RequestMessage implements Serializable {
 private RequestHeader requestHeader;
 private RequestBody requestBody;
 
@@ -19,4 +21,5 @@ private RequestBody requestBody;
     public void setRequestBody(RequestBody requestBody) {
         this.requestBody = requestBody;
     }
+    
 }

@@ -1,12 +1,14 @@
 package com.csesteel.common.response;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.csesteel.common.constant.Constant;
 
-public class ResponseMessage {
+public class ResponseMessage implements Serializable  {
 
+	private static final long serialVersionUID = 1L;
 	private String resultcode; //返回码
     private String description; //返回描述
     private Map<String,Object> returnResult; //返回结果
@@ -44,6 +46,16 @@ public class ResponseMessage {
 	}
 	public void setReturnResult(Map<String, Object> returnResult) {
 		this.returnResult = returnResult;
+	}
+	public void setReturnResult(String key,Object object) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		result.put(key, object);
+		this.returnResult = result;
+	}
+	public void setReturnResult(Object object) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		result.put("pageInfo", object);
+		this.returnResult = result;
 	}
    public static ResponseMessage getSuccess(){	   
 	  return new ResponseMessage(Constant.SUCCESS, Constant.SUCCESS_DESCRIPTION);

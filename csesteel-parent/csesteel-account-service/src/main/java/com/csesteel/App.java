@@ -11,6 +11,7 @@ import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 @SpringBootApplication
 //@ImportResource(locations = { /* "dubbo-provider.xml", */"mybatis/mybatis-config.xml"})
 @EnableDubbo
+//利用反射将该包下的类放入spring容器
 @MapperScan("com.csesteel.presist.mapper")
 public class App {
 	public static void main(String[] args) {

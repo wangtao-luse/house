@@ -1,6 +1,8 @@
 package com.csesteel.common.request;
 
-public class RequestHeader {
+import java.io.Serializable;
+
+public class RequestHeader  implements Serializable{
 	private String requestURI;
 	private StringBuffer requestURL;
 	private String contextPath;
