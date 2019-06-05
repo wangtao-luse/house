@@ -45,7 +45,7 @@ public class AccountService  extends ServiceImpl<EmpMapper, Emp>implements Accou
 			JSONObject jsonObject = requestMessage.getRequestBody().getContent();
 			Emp emp = jsonObject.getJSONObject("vo").toJavaObject(Emp.class); 
 			PageInfo page = jsonObject.getJSONObject("page").toJavaObject(PageInfo.class); 						
-			if(page!=null) {
+			if(page!=null) {//分页查询
 			PageHelper.offsetPage(page.getPageNum(), page.getPageSize());
 			PageInfo<Emp> pageInfo=new PageInfo<Emp>(this.empMapper.selectEmpWidthDept(emp));		
 			 responseMessage.setReturnResult(pageInfo);

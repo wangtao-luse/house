@@ -186,12 +186,14 @@ function validate_update_form(){
 }
 //列表查询
 function to_page(pn){
-	/*  var url="${APP_PATH}/emps";
-	var date={"pn":pn};
-	 postAjax(url, JSON.stringify(date),function (data) {
-		  alert(data.description);
-	  }, {cache: false, async: false});  */
-	 $.ajax({
+	  var url="/emps";
+	var date={"vo":{},"pageInfo":{"pageNum":pn}};
+	 postAjax(url, JSON.stringify(date),function (result) {
+         builder_emp(result);
+         builder_pageInfo(result);
+         builder_nav(result);
+     }, {cache: false, async: false});
+	 /*$.ajax({
 		url:"/emps",
 		data:{"pn":pn},
 		type:"post",
@@ -201,13 +203,13 @@ function to_page(pn){
 			builder_pageInfo(result);
 			builder_nav(result); 
 		}
-	});  
+	});  */
 }
 //构建表格
 function builder_emp(result){
 	$("#table_emp tbody").empty();
 	console.log(result.returnResult);
-	$.each(result.returnResult.pageInfo.list,function(index,item){
+	$.each(result.returnResult.result.list,function(index,item){
 		var empno=$("<td></td>").append(item.empno);
 		var ename=$("<td></td>").append(item.ename);
 		var job=$("<td></td>").append(item.job);
@@ -233,7 +235,7 @@ function builder_emp(result){
 //构建分页信息
 function builder_pageInfo(result){
 	 $("#page_info").empty();
-	var res=result.returnResult.pageInfo;
+	var res=result.returnResult.result;
 	console.log(res);
 	 $("#page_info").append("当前"+res.pageNum+"页,总"+res.pages+"页,总"+res.total+"条记录。");
 }
@@ -241,7 +243,7 @@ function builder_pageInfo(result){
 function builder_nav(result){
 	$("#page_nav_area").empty();
 	var ul=$("<ul></ul>").addClass("pagination");
-	var date=result.returnResult.pageInfo;
+	var date=result.returnResult.result;
 	var firstPageLi=$("<li></li>").addClass("page-item").append($("<a></a>").append("首页").attr("href","#").addClass("page-link"));
 	var previousLi=$("<li></li>").addClass("page-item").append($("<a></a>").attr("href","#").addClass("page-link").append($("<span></span>").append("&laquo;")).append($("<span></span>").addClass("sr-only")));
 	if(date.hasPrevious==false){
@@ -268,7 +270,7 @@ function builder_nav(result){
 			 to_page(date.pages);
 		});
 	}
-	var datas=result.returnResult.pageInfo.navigatepageNums;
+	var datas=result.returnResult.result.navigatepageNums;
 	ul.append(firstPageLi)
 	  .append(previousLi)
 	  

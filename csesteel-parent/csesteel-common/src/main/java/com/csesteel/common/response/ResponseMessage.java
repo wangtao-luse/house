@@ -54,7 +54,7 @@ public class ResponseMessage implements Serializable  {
 	}
 	public void setReturnResult(Object object) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		result.put("pageInfo", object);
+		result.put("result", object);
 		this.returnResult = result;
 	}
    public static ResponseMessage getSuccess(){	   

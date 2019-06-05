@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -32,7 +33,6 @@ public String empPage(ModelMap model) {
 public ResponseMessage emps() {
 	JSONObject jsonObject=new JSONObject();
 	jsonObject.put("vo", new Emp());
-	ArrayList<Page> list=new ArrayList<Page>();
 	PageInfo page=new PageInfo();
 	page.setPageNum(1);
 	page.setPageSize(3);
@@ -41,5 +41,12 @@ public ResponseMessage emps() {
 	ResponseMessage queryEmps = this.accountApi.queryEmps(requestMessage);
 	return queryEmps;
 	
+}
+	@RequestMapping("/empList")
+	@ResponseBody
+public ResponseMessage empList(@RequestBody JSONObject jsonObject,PageInfo pageInfo){
+	RequestMessage requestMessage = HttpData.httpData(jsonObject);
+	ResponseMessage queryEmps = this.accountApi.queryEmps(requestMessage);
+	return queryEmps;
 }
 }
