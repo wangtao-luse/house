@@ -48,8 +48,12 @@ private static final long serialVersionUID=1L;
 
     @TableField("DEPTNO")
     private Integer deptno;
+    
     @TableField(exist = false)
     private String dname;
+    
+    @TableField(exist = false)
+    private String loc;
 
   
 }

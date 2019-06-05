@@ -26,6 +26,7 @@
    <select id="selectEmpWidthDept" resultType="com.csesteel.model.Emp" parameterType="com.csesteel.model.Emp">
    select 
     <include refid="Base_Column_List"></include>
+    ,d.dname,d.loc
      from EMP e left join DEPT d on e.DEPTNO=d.DEPTNO
    </select>
 </mapper>
