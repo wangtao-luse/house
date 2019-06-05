@@ -242,8 +242,8 @@ function builder_nav(result){
 	$("#page_nav_area").empty();
 	var ul=$("<ul></ul>").addClass("pagination");
 	var date=result.returnResult.pageInfo;
-	var firstPageLi=$("<li></li>").append($("<a></a>").append("首页").attr("href","#"));
-	var previousLi=$("<li></li>").append($("<a></a>").attr("href","#").append($("<span></span>").append("&laquo;")));
+	var firstPageLi=$("<li></li>").addClass("page-item").append($("<a></a>").append("首页").attr("href","#").addClass("page-link"));
+	var previousLi=$("<li></li>").addClass("page-item").append($("<a></a>").attr("href","#").addClass("page-link").append($("<span></span>").append("&laquo;")).append($("<span></span>").addClass("sr-only")));
 	if(date.hasPrevious==false){
 		firstPageLi.addClass("disabled");
 		previousLi.addClass("disabled");
@@ -255,8 +255,8 @@ function builder_nav(result){
 			 to_page(date.pageNum-1);
 		});
 	}
-	var nextPageLi=$("<li></li>").append($("<a></a>").attr("href","#").append($("<span></span>").append("&raquo;")));
-	var lasttPageLi=$("<li></li>").append($("<a></a>").append("末页").attr("href","#"));
+	var nextPageLi=$("<li></li>").addClass("page-item").append($("<a></a>").attr("href","#").addClass("page-link").append($("<span></span>").append("&raquo;")).append($("<span></span>").addClass("sr-only")));
+	var lasttPageLi=$("<li></li>").addClass("page-item").append($("<a></a>").append("末页").attr("href","#").addClass("page-link"));
 	if(date.hasNextPage==false){
 		nextPageLi.addClass("disabled");
 		lasttPageLi.addClass("disabled");
@@ -275,7 +275,7 @@ function builder_nav(result){
 	 
 	
 	$.each(datas,function(index,item){
-		var navNums= $("<li></li>").append($("<a></a>").attr("href","#").append(item));
+		var navNums= $("<li></li>").addClass("page-item").append($("<a></a>").attr("href","#").addClass("page-link").append(item));
 		 if(item==date.pageNum){
 			 navNums.addClass("active") 
 		 }
