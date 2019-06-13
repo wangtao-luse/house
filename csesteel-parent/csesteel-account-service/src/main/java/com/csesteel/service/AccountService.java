@@ -46,14 +46,15 @@ public class AccountService  extends ServiceImpl<EmpMapper, Emp>implements Accou
 			Emp emp = jsonObject.getJSONObject("vo").toJavaObject(Emp.class); 
 			PageInfo page = jsonObject.getJSONObject("page").toJavaObject(PageInfo.class); 						
 			if(page!=null) {//分页查询
-			PageHelper.offsetPage(page.getPageNum(), page.getPageSize());
+			PageHelper.startPage(page.getPageNum(), page.getPageSize());
 			List<Emp> list = this.empMapper.selectEmpWidthDept(emp);
-			PageInfo pageInfo=new PageInfo(list);
+			PageInfo<Emp> pageInfo=new PageInfo<Emp>(list,5);
 			 responseMessage.setReturnResult(pageInfo);
-			}else {
-			List<Emp> selectEmpWidthDept = this.empMapper.selectEmpWidthDept(emp);
-			 responseMessage.setReturnResult(selectEmpWidthDept);
+			} else {
+				List<Emp> selectEmpWidthDept = this.empMapper.selectEmpWidthDept(emp);
+				  responseMessage.setReturnResult(selectEmpWidthDept);
 			}
+				 
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

@@ -1,9 +1,6 @@
 package com.csesteel.model;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
+
 
 import lombok.Data;
 
@@ -16,18 +13,18 @@ import lombok.Data;
  * @since 2019-06-02
  */
 @Data
-@TableName("DEPT")
-public class Dept extends Model<Dept> {
+/* @TableName("DEPT") */
+public class Dept /* extends Model<Dept> */ {
 
 private static final long serialVersionUID=1L;
 
-    @TableId("DEPTNO")
+	/* @TableId("DEPTNO") */
     private Integer deptno;
 
-    @TableField("DNAME")
+	/* @TableField("DNAME") */
     private String dname;
 
-    @TableField("LOC")
+	/* @TableField("LOC") */
     private String loc;
 
 }

@@ -13,6 +13,6 @@ import com.csesteel.model.Emp;
  * @author wangtao
  * @since 2019-06-01
  */
-public interface EmpMapper extends BaseMapper<Emp> {
-public List<Emp> selectEmpWidthDept(Emp emp);
+public interface EmpMapper  extends BaseMapper<Emp> {
+List<Emp> selectEmpWidthDept(Emp emp);
 }

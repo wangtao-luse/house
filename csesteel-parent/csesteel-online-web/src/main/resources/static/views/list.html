@@ -187,7 +187,7 @@ function validate_update_form(){
 //列表查询
 function to_page(pn){
 	  var url="/empList";
-	var date={"vo":{},"page":{"pageNum":pn,"pageSize":3}};
+	var date={"vo":{},"page":{"pageNum":pn,"pageSize":2}};
 	 postAjax(url, JSON.stringify(date),function (result) {
          builder_emp(result);
          builder_pageInfo(result);
