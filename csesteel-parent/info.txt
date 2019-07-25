@@ -1,0 +1,8 @@
+项目使用的基本技术
+1.基本框架Springboot2.X
+2.数据库Oracle
+3.数据库访问层Mybatis
+4.远程调用框架Dubbo
+5.前端框架bootstrap
+  jquery封装了ajax
+
